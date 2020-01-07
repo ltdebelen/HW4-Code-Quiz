@@ -16,35 +16,20 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">CodeQuiz</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExampleDefault"
-          aria-controls="navbarsExampleDefault"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">View Highscores</a>
-            </li>
-          </ul>
-        </div>
+        <a class="navbar-brand" href="index.html">CodeQuiz</a>
       </nav>
     </header>
     <main role="main" class="container">
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
+        <h1>Coding Quiz</h1>
         <p class="lead">
-          Use this document as a way to quickly start any new project.<br />
-          All you get is this text and a mostly barebones HTML document.
+          This is a simple game that will test your knowledge<br />
+          on web development topics and concepts
         </p>
+        <a class="btn btn-primary text-light" href="quiz.html">Take Quiz</a>
+        <a class="btn btn-primary text-light" href="highscores.html"
+          >View High Scores</a
+        >
       </div>
     </main>
     <script
@@ -57,5 +42,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
