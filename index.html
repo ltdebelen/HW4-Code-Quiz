@@ -19,17 +19,15 @@
         <a class="navbar-brand" href="index.html">CodeQuiz</a>
       </nav>
     </header>
-    <main role="main" class="container">
-      <div class="starter-template">
-        <h1>Coding Quiz</h1>
-        <p class="lead">
+    <main role="main" class="container" id="main">
+      <div class="starter-template" id="main-div">
+        <h1 id="header">Coding Quiz</h1>
+        <p id="paragraph" class="lead">
           This is a simple game that will test your knowledge<br />
           on web development topics and concepts
         </p>
-        <a class="btn btn-primary text-light" href="quiz.html">Take Quiz</a>
-        <a class="btn btn-primary text-light" href="highscores.html"
-          >View High Scores</a
-        >
+        <button class="btn btn-primary" id="start-game">Start Game</button>
+        <button class="btn btn-primary" id="high-score">View Highscore</button>
       </div>
     </main>
     <script
@@ -42,5 +40,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/quiz.js"></script>
   </body>
 </html>
