@@ -87,9 +87,6 @@ function startTimer() {
   // Adding + 1 Second for function delay showing in UI;
   secondsLeft = questionsLength * 15 + 1;
 
-  console.log("Question Counter" + questionCounter);
-  console.log("Question Array Length" + questionsLength);
-
   timerInterval = setInterval(function() {
     secondsLeft--;
 
@@ -104,7 +101,6 @@ function startTimer() {
 }
 
 function displayTimer(secondsLeft) {
-  console.log(secondsLeft);
   let timerHTML = `<p>Time Left: ${secondsLeft}</p>`;
   divTimer.innerHTML = timerHTML;
 }
@@ -156,6 +152,40 @@ function saveScore() {
 }
 
 function viewHighScores() {
-  const divGetInitials = document.getElementById("get-initals-div");
-  divGetInitials.style.display = "none";
+  divWelcome.style.display = "none";
+  divTimer.style.display = "none";
+
+  let highScoresHTML = "";
+  highScoresHTML += `<div class="starter-template" id="highscores-div">
+  <h1 id="header">High Scores</h1>
+  <ol class="list-group list-group-flush mb-5" id="highscores-list">
+  </ol>
+  <button class="btn btn-primary" onclick="retryQuiz()">Retry Quiz</button>
+  <button class="btn btn-primary" onclick="clearHighscores()">
+    Clear Highscores
+  </button>
+</div>`;
+
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+  let liHTML = "";
+  highScores.forEach((highScore, index) => {
+    liHTML += `<li class="list-group-item">${index + 1}. <strong>${
+      highScore.initials
+    }</strong> - ${highScore.score} points</li>`;
+  });
+
+  mainSectionEl.innerHTML = highScoresHTML;
+
+  let highScoresList = document.getElementById("highscores-list");
+  highScoresList.innerHTML = liHTML;
+}
+
+function clearHighscores() {
+  localStorage.removeItem("highScores");
+  viewHighScores();
+}
+
+function retryQuiz() {
+  window.location.assign("/index.html");
 }
