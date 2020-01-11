@@ -17,7 +17,7 @@ Play proceeds as follow:
 * Application should also be responsive, ensuring that it adapts to multiple screen sizes.
 
 ## Technologies Used
-HTML, CSS, JavaScript, Bootstrap 4, LocalStorage
+HTML, CSS, JavaScript, Bootstrap 4, Particles.JS, LocalStorage
 
 ## GitHub Hosted Link
 https://ltdebelen.github.io/HW4-Code-Quiz/index.html
