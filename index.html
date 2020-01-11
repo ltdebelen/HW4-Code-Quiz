@@ -21,30 +21,45 @@
         <a class="navbar-brand" href="index.html">CodeQuiz</a>
       </nav>
     </header>
-    <div id="timer">
-      <p><i class="fa fa-lg fa-clock-o"></i></p>
-    </div>
-    <div id="message"></div>
-    <main role="main" class="container" id="main">
-      <div class="starter-template" id="welcome-div">
-        <h1 id="header">Coding Quiz</h1>
-        <p id="paragraph" class="lead">
-          This is a simple game that will test your knowledge<br />
-          on web development topics and concepts
-        </p>
-        <button class="btn btn-primary" id="start-game">Start Game</button>
-        <button
-          class="btn btn-primary"
-          id="high-score"
-          onclick="viewHighScores()"
-        >
-          View Highscore
-        </button>
+    <div id="particles-js">
+      <div class="container">
+        <div id="timer">
+          <p><i class="fa fa-lg fa-clock-o"></i></p>
+        </div>
       </div>
-    </main>
+      <div id="message"></div>
+      <main role="main" class="container" id="main">
+        <div class="starter-template" id="welcome-div">
+          <h1 id="header">Code Quiz</h1>
+          <p id="paragraph" class="lead">
+            This is a simple game that will test your knowledge<br />
+            on web development topics and concepts
+          </p>
+          <button class="btn btn-primary" id="start-game">Start Game</button>
+          <button
+            class="btn btn-primary"
+            id="high-score"
+            onclick="viewHighScores()"
+          >
+            View Highscore
+          </button>
+        </div>
+      </main>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+      particlesJS.load(
+        "particles-js",
+        "./assets/js/particles.json",
+        function() {
+          console.log("particles.json loaded...");
+        }
+      );
+    </script>
   </body>
 </html>

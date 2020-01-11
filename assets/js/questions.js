@@ -20,8 +20,7 @@ let questions = [
     answer: "Blue"
   },
   {
-    title:
-      "A clickable link that takes you from one document to another, or to any resource, even within a the same document, with text that is highlighted in some fashion is called",
+    title: "A clickable link that takes you from one document to another.",
     choices: ["Locator", "URL", "Protocol", "Hyperlink"],
     answer: "Hyperlink"
   }

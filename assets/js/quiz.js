@@ -139,8 +139,8 @@ function getInitials() {
   </p>
   <div class="form-group">
     <input
-      type="email"
-      class="form-control"
+      type="text"
+      class="form-control w-25 m-auto"
       id="initials"
       placeholder="Enter initials"
     />
@@ -193,7 +193,7 @@ function viewHighScores() {
 
   let liHTML = "";
   highScores.forEach((highScore, index) => {
-    liHTML += `<li class="list-group-item">${index + 1}. <strong>${
+    liHTML += `<li class="list-group-item w-25 m-auto">${index + 1}. <strong>${
       highScore.initials
     }</strong> - ${highScore.score} points</li>`;
   });
