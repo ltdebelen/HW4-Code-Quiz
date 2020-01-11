@@ -25,6 +25,7 @@ let questionCounter = 0;
 const questionsLength = questions.length;
 let secondsLeft = 0;
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+let timerInterval;
 
 btnStartGame.addEventListener("click", startGame);
 
@@ -72,6 +73,12 @@ function validateChoice(questionCounter, choice) {
     secondsLeft -= 15;
   }
 
+  counter++;
+  if (counter == questionsLength) {
+    clearInterval(timerInterval);
+    getInitials();
+  }
+
   getQuestion();
 }
 
@@ -80,7 +87,10 @@ function startTimer() {
   // Adding + 1 Second for function delay showing in UI;
   secondsLeft = questionsLength * 15 + 1;
 
-  var timerInterval = setInterval(function() {
+  console.log("Question Counter" + questionCounter);
+  console.log("Question Array Length" + questionsLength);
+
+  timerInterval = setInterval(function() {
     secondsLeft--;
 
     if (secondsLeft <= 0) {
@@ -88,6 +98,7 @@ function startTimer() {
       clearInterval(timerInterval);
       getInitials();
     }
+
     displayTimer(secondsLeft);
   }, 1000);
 }
@@ -132,7 +143,7 @@ function saveScore() {
 
   let userScore = {
     initials: userInitials,
-    score: Math.floor(Math.random() * 100)
+    score: secondsLeft
   };
 
   highScores.push(userScore);
@@ -141,10 +152,10 @@ function saveScore() {
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
 
-  showHighScores();
+  viewHighScores();
 }
 
-function showHighScores() {
+function viewHighScores() {
   const divGetInitials = document.getElementById("get-initals-div");
   divGetInitials.style.display = "none";
 }
