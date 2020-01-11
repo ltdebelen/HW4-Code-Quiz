@@ -7,19 +7,6 @@ const pEl = document.getElementById("paragraph");
 const btnStartGame = document.getElementById("start-game");
 const btnHighScore = document.getElementById("high-score");
 
-let questions = [
-  {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
-  },
-  {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
-  }
-];
-
 // Other Variables
 let questionCounter = 0;
 const questionsLength = questions.length;
@@ -71,6 +58,9 @@ function validateChoice(questionCounter, choice) {
 
   if (userChoice != answer) {
     secondsLeft -= 15;
+    displayValidation("wrong");
+  } else {
+    displayValidation("correct");
   }
 
   counter++;
@@ -82,10 +72,33 @@ function validateChoice(questionCounter, choice) {
   getQuestion();
 }
 
+function displayValidation(answer) {
+  if (answer == "correct") {
+    let correctAnsHTML = `<div class="alert alert-success container text-center" id="message-pop-up" role="alert">
+    <i class="fa fa-lg fa-check"></i> You are correct!
+  </div>`;
+
+    document.getElementById("message").innerHTML = correctAnsHTML;
+
+    setTimeout(function() {
+      $("#message-pop-up").remove();
+    }, 1000);
+  } else if (answer == "wrong") {
+    let wrongAnsHTML = `<div class="alert alert-danger container text-center" id="message-pop-up" role="alert">
+    <i class="fa fa-lg fa-times"></i> Wrong Answer!
+  </div>`;
+
+    document.getElementById("message").innerHTML = wrongAnsHTML;
+
+    setTimeout(function() {
+      $("#message-pop-up").remove();
+    }, 1000);
+  }
+}
+
 function startTimer() {
   // Start Timer (Formula = Question Length * 15 seconds);
-  // Adding + 1 Second for function delay showing in UI;
-  secondsLeft = questionsLength * 15 + 1;
+  secondsLeft = questionsLength * 15;
 
   timerInterval = setInterval(function() {
     secondsLeft--;
@@ -101,13 +114,18 @@ function startTimer() {
 }
 
 function displayTimer(secondsLeft) {
-  let timerHTML = `<p>Time Left: ${secondsLeft}</p>`;
+  let timerHTML = `<p><i class="fa fa-lg fa-clock-o"></i> Time Left: ${secondsLeft} sec</p>`;
   divTimer.innerHTML = timerHTML;
 }
 
 function getInitials() {
   const divQuestion = document.getElementById("questions-div");
+  const divPopUp = document.getElementById("message-pop-up");
   divQuestion.style.display = "none";
+  if (divPopUp != null) {
+    divPopUp.style.display = "none";
+  }
+
   divTimer.style.display = "none";
 
   if (secondsLeft < 0) {

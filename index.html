@@ -8,8 +8,10 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
     />
     <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
@@ -19,7 +21,10 @@
         <a class="navbar-brand" href="index.html">CodeQuiz</a>
       </nav>
     </header>
-    <div id="timer"></div>
+    <div id="timer">
+      <p><i class="fa fa-lg fa-clock-o"></i></p>
+    </div>
+    <div id="message"></div>
     <main role="main" class="container" id="main">
       <div class="starter-template" id="welcome-div">
         <h1 id="header">Coding Quiz</h1>
@@ -37,16 +42,9 @@
         </button>
       </div>
     </main>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/quiz.js"></script>
   </body>
 </html>
