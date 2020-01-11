@@ -1,4 +1,5 @@
 // DOM Elements
+const divTimer = document.getElementById("timer");
 const mainSectionEl = document.getElementById("main");
 const divEl = document.getElementById("main-div");
 const h1El = document.getElementById("header");
@@ -22,12 +23,14 @@ let questions = [
 // Other Variables
 let questionCounter = 0;
 const questionsLength = questions.length;
+let secondsLeft = 0;
 
 btnStartGame.addEventListener("click", startGame);
 
 function startGame() {
   divEl.style.display = "none";
   getQuestion();
+  startTimer();
 }
 
 function getQuestion() {
@@ -69,4 +72,25 @@ function validateChoice(questionCounter, choice) {
   }
 
   getQuestion();
+}
+
+function startTimer() {
+  // Start Timer (Formula = Question Length * 15 seconds);
+  // Adding + 1 Second for function delay showing in UI;
+  secondsLeft = questionsLength * 15 + 1;
+
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+    }
+    displayTimer(secondsLeft);
+  }, 1000);
+}
+
+function displayTimer(secondsLeft) {
+  console.log(secondsLeft);
+  let timerHTML = `<p>Time Left: ${secondsLeft}</p>`;
+  divTimer.innerHTML = timerHTML;
 }
