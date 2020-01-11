@@ -108,6 +108,11 @@ function displayTimer(secondsLeft) {
 function getInitials() {
   const divQuestion = document.getElementById("questions-div");
   divQuestion.style.display = "none";
+  divTimer.style.display = "none";
+
+  if (secondsLeft < 0) {
+    secondsLeft = 0;
+  }
 
   let initialsHTML = `  <div class="starter-template" id="get-initals-div">
   <h1 id="header">All done!</h1>
