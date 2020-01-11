@@ -187,5 +187,5 @@ function clearHighscores() {
 }
 
 function retryQuiz() {
-  window.location.assign("/index.html");
+  window.location.reload();
 }
